@@ -8,7 +8,7 @@ app.get('/', function(req, res){
 app.get('/blog', function(req, res){
     res.send('Me chama de Douglas e me passe as drogas, só que estamos na página do Blog');
 });
-
+ 
 app.get('/sobre', function(req, res){
     res.sendFile(__dirname + '/paginas/sobre.html')
 });

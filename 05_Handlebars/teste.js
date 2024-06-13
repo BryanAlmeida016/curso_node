@@ -8,7 +8,7 @@ const sequilize = new Sequilize('test','root','',{
 //     console.log('Tudo certo jão, conectado com sussa!')
 // }).catch(function(erro){
 //     console.log('Erro: ' + erro)
-// })
+// }) 
 
 const Postagem = sequilize.define('postagens',{
     titulo:{
