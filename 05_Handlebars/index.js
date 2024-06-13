@@ -1,30 +1,19 @@
 const express = require('express');
 const app = express();
+const handlebars = require('express-handlebars');
+const Sequilize = require('sequelize');
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/paginas/index.html')
-});
+//Config
+    //Template Engine
+    app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
+    app.set('view engine','handlebars')
 
-app.get('/blog', function(req, res){
-    res.send('Me chama de Douglas e me passe as drogas, só que estamos na página do Blog');
-});
- 
-app.get('/sobre', function(req, res){
-    res.sendFile(__dirname + '/paginas/sobre.html')
-});
+    //Conexão Banco de Dados
+    const sequilize = new Sequilize('test','root','',{
+        host:'localhost',
+        dialect:'mysql'
+    })
 
-app.get('/cadastro', function(req, res){
-    res.send('Cadastro: xxxxxxxx');
-});
-
-app.get('/cadastro/:nome/:idade', function(req, res){
-    res.send('Cadastro: ' + req.params.nome + " - Idade: " + req.params.idade);
-});
-
-
-//Abrindo um server com Express - Tem q ser a última linha do cód.
 app.listen(8081, function(){
-    console.log("Ixi... Tá podendo um minezin?? http://localhost:8081");
+    console.log("Server on... Tá podendo um minezin?? http://localhost:8081");
 });
-
-
