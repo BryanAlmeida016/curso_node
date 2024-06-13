@@ -14,6 +14,15 @@ const Sequilize = require('sequelize');
         dialect:'mysql'
     })
 
+//Rotas
+app.get('/cadastro', function(req,res){
+    res.render('formulario')
+})
+
+app.post('/add', function(req,res){
+    res.send('formulario recebido')
+})
+
 app.listen(8081, function(){
     console.log("Server on... Tá podendo um minezin?? http://localhost:8081");
 });
